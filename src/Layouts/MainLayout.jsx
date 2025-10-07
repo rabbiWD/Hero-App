@@ -6,8 +6,8 @@ import { Outlet } from 'react-router';
 const MainLayout = () => {
     return (
         <div className='flex flex-col min-h-screen'>
-            <Navbar></Navbar>
-            <div className=''>
+                <Navbar></Navbar>
+            <div className=' flex-1 bg-gray-100'>
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
@@ -16,3 +16,5 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+
+// max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-4 md:py-8 lg:py-12  outlet use korte hbe
