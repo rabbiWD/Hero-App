@@ -17,4 +17,3 @@ const MainLayout = () => {
 
 export default MainLayout;
 
-// max-w-screen-xl mx-auto w-full px-4 md:px-8 lg:px-12 py-4 md:py-8 lg:py-12  outlet use korte hbe

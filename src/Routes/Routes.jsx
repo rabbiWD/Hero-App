@@ -4,13 +4,14 @@ import Home from "../Pages/Home"
 import MainLayout from "../Layouts/MainLayout"
 import ErrorPage from "../Pages/ErrorPage"
 import Installation from './../Pages/Installation';
+import AppDetails from './../Pages/AppDetails';
 
 const router = createBrowserRouter([
   {
     path:'/',
     element:<MainLayout></MainLayout>,
     errorElement:<ErrorPage></ErrorPage>,
-    hydrateFallbackElement: <p>Loading....</p>,
+    hydrateFallbackElement: <p className="flex justify-center items-center h-screen"><span className="loading loading-spinner loading-xl"></span></p>,
     children:[
 
         {
@@ -23,8 +24,12 @@ const router = createBrowserRouter([
             element: <Apps></Apps>
         },
         {
-          path:'/installation',
-          element:<Installation></Installation>
+          path:'/installtion',
+          Component: Installation
+        },
+        {
+          path:'/app/:id',
+          element: <AppDetails></AppDetails>
         }
        
     ]
