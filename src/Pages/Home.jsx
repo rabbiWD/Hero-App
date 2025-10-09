@@ -15,7 +15,7 @@ const Home = () => {
                 <p className='text-sm mt-2'>Explore All Trending Apps on the Market developed by us</p>
             </div>
             <div>
-                 <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
                     {
                     featuredApps.map(app=>(
                         <AppCard key={app.id} app={app}></AppCard>

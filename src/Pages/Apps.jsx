@@ -32,7 +32,7 @@ const Apps = () => {
           Explore All Apps on the Market developed by us. We code for Millions
         </p>
       </div>
-      <div className='mt-7 pb-7 flex justify-between items-center'>
+      <div className='mt-7 pb-7 flex flex-col gap-3 md:flex-row justify-between items-center'>
         <h1 className='text-2xl font-semibold'>({searchedApps.length}) App Found</h1>
         <label className='input'>
           <input
@@ -64,7 +64,7 @@ const Apps = () => {
           </div>
         </div>
       ) : (
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
           {searchedApps.map(app => (
             <AppCard key={app.id} app={app} />
           ))}
