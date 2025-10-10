@@ -28,7 +28,6 @@ const Installation = () => {
         let updatedList = existingList.filter(a=> a.id !== id)
 
         setInstallation(updatedList)
-        // (prev=> prev.filter(a => a.id !== id))
 
         localStorage.setItem('installation', JSON.stringify(updatedList))
          toast.success('Uninstall Successfully')
@@ -67,7 +66,7 @@ const Installation = () => {
                            <div className='flex gap-8'>
                              <h3 className='flex items-center gap-2 text-xl text-[#00d390]'><Download /> <span>{a.downloads} M</span></h3>
                             <h3 className='flex gap-2 text-xl items-center text-[#ff8811]'><Star /><span>{a.ratingAvg}</span></h3>
-                            <h3 className='flex items-center text-xl'><span>{a.size} MB</span></h3>
+                            <h3 className='flex items-center text-xl text-blue-500'><span>{a.size} MB</span></h3>
                            </div>
                             <div className="">
                           <button onClick={()=> handleUninstall(a.id)} className="btn bg-[#00d390] text-white">Uninstall</button>

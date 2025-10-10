@@ -26,7 +26,7 @@ const AppDetails = () => {
     setIsInstalled(alreadyInstalled);
   }, [app]);
 
-  if (loading || !app) return <p>Loading.....</p>;
+  if (loading || !app) return <p className="flex justify-center items-center h-screen"><span className="loading loading-spinner loading-xl"></span></p>;
 
   const { image, title, downloads, ratingAvg, companyName, reviews, size, ratings, description } = app;
 
@@ -40,7 +40,7 @@ const AppDetails = () => {
     const updatedList = [...existingList, app];
     localStorage.setItem('installation', JSON.stringify(updatedList));
     setIsInstalled(true);
-    toast.success('Install Done');
+    toast.success(`${title} Install Successfully`);
   };
   const ratingsData = [
     { name: "5 Star", value: ratings[4].count },
@@ -49,11 +49,7 @@ const AppDetails = () => {
     { name: "2 Star", value: ratings[1].count },
     { name: "1 Star", value: ratings[0].count },
   ];
-  //      const app = useLoaderData();
-  // const [isInstalled, setIsInstalled] = useState(() => (
-  //   const installedApps = JSON.parse(localStorage.getItem("installedApps")) || [];
-  //   return installedApps.includes(app.id);
-  // ));
+  
   return (
     <div className="card bg-base-100 p-4">
       <Toaster position="top-center" reverseOrder={false} />
@@ -88,8 +84,8 @@ const AppDetails = () => {
             <button
               onClick={handleInstallList}
               disabled={isInstalled}
-              className={`btn text-white ${
-                isInstalled ? "bg-gray-400 cursor-not-allowed" : "bg-[#00d390] hover:bg-green-500"
+              className={` p-3 text-lg rounded text-white ${
+                isInstalled ? "bg-[#00d390] cursor-not-allowed" : "bg-[#00d390] hover:bg-green-500"
               }`}
             >
               {isInstalled ? "Installed" : `Install Now (${size} MB)`}
