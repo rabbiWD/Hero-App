@@ -2,10 +2,16 @@ import React, { useEffect, useState } from 'react';
 import toast, { Toaster } from "react-hot-toast";
 import { Download } from 'lucide-react';
 import { Star } from 'lucide-react';
+import LoadingSpinner from '../Components/LoadingSpinner';
+
+
 
 const Installation = () => {
     const [installation, setInstallation] = useState([])
     const [sortOrder, setSortOrder] = useState('none')
+    const [loading, setLoading] = useState(false)
+
+
     useEffect(()=>{
         const savedList = JSON.parse(localStorage.getItem('installation'))
         if(savedList) setInstallation(savedList)
@@ -22,6 +28,20 @@ const Installation = () => {
         }
     }) ()
 
+    useEffect(()=>{
+      setLoading(true);
+
+      const timer = setTimeout(()=>{
+        setLoading(false)
+      }, 1200)
+      return ()=> clearTimeout(timer)
+    }, [])
+    if(loading){
+        return <LoadingSpinner></LoadingSpinner>
+      }
+
+      
+
      const handleUninstall = id =>{
        
         const existingList = JSON.parse(localStorage.getItem('installation'))
@@ -32,6 +52,9 @@ const Installation = () => {
         localStorage.setItem('installation', JSON.stringify(updatedList))
          toast.success('Uninstall Successfully')
     }
+    
+
+
 
 
     return (
@@ -77,7 +100,7 @@ const Installation = () => {
                     ))
                 }
                 </div>
- 
+  
             </div>
     );
 };

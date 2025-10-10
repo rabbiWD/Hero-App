@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
 import { FaGithub } from "react-icons/fa";
 import logo from '../assets/logo.png';
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
   const activeClass = ({ isActive }) =>
@@ -65,3 +65,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+
+
